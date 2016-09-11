@@ -11,19 +11,19 @@ function adjacentDigitsSum(series, adjacentDigitsLength) {
   const seriesArray = series.split('');
   const length = seriesArray.length;
   let index = 0;
-  let highestSum = 0;
+  let largestProduct = 0;
 
   while (index < length - (adjacentDigitsLength-1)) {
     let trashArray = seriesArray.map( (number) => number);
     let subArray = trashArray.splice(index, adjacentDigitsLength);
-    let sum = E.multiplyArray(subArray);
+    let product = E.multiplyArray(subArray);
 
-    if (sum > highestSum) { highestSum = sum; }
+    if (product > largestProduct) { largestProduct = product; }
 
     index += 1;
   }
 
-  return highestSum;
+  return largestProduct;
 }
 
 const answer = adjacentDigitsSum(series, 13);
