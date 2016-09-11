@@ -28,7 +28,10 @@ exports.nextToLastIn = nextToLastIn;
 exports.primesIn = primesIn;
 
 exports.sumArray = sumArray;
+exports.sumArrayNumsSquared = sumArrayNumsSquared;
 exports.sumOfArrays = sumOfArrays;
+
+exports.squared = squared;
 
 exports.uniqueNumbersOnly = uniqueNumbersOnly;
 
@@ -42,6 +45,16 @@ function createRange(num) {
   }
 
   return result;
+}
+
+// takes a collection and returns the sum of the collection when every number in the collection is squared
+function sumArrayNumsSquared(array) {
+  return array.reduce( (accumulator, current) => accumulator += squared(current))
+}
+
+// returns a number squared
+function squared(number) {
+  return number * number;
 }
 
 // returns boolean
