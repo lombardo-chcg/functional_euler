@@ -7,51 +7,39 @@
 // import my homemade 'Euler Utils' library
 const E = require('./Euler-Utils.js');
 
-function isPalindrome(input) {
-  let word = input.toString();
-
-  if (word == word.split('').reverse().join('')) {
-    return true;
-  }
-
-  return false;
-}
-
 function getThreeDigitFactors(number) {
-  return E.factorsOf(number).filter( (factor) => factor.toString().length === 3);
+  return E.factorsOf(number)
+    .filter( (factor) => factor.toString().length === 3);
 }
 
 function checkFactorsForProduct(array, product) {
-  let solved = false;
   let highToLow = array.reverse();
   let pair = [];
 
+  highToLow.forEach( (number) => {
+    let index = 0;
+    let length = array.length-1;
 
-    highToLow.forEach( (number) => {
-      let index = 0;
-      // console.log(number * array[index]);
-
-      for (index; index < array.length-1; index += 1)
-        if (number * array[index] === product) {
-          pair = [number, array[index]]
-        }
-    })
-
+    while (index < length) {
+      if (number * array[index] === product) {
+        pair = [number, array[index]]
+      }
+      index += 1;
+    }
+  });
 
   return pair;
 }
 
 function palindromeNumFinder() {
-  let solved = false;
   let max = 999 * 999;
   let result;
 
   for (max; max > 0; max -= 1) {
-    if (isPalindrome(max)) {
+    if (E.isPalindrome(max)) {
       let factors = getThreeDigitFactors(max);
 
       if (checkFactorsForProduct(factors, max).length == 2) {
-        solved = true;
         return checkFactorsForProduct(factors, max)
       }
     }

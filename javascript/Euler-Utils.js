@@ -18,6 +18,8 @@ exports.getMultiplesBelow = getMultiplesBelow;
 
 exports.multiplyArray = multiplyArray;
 
+exports.isFactor = isFactor;
+exports.isPalindrome = isPalindrome;
 exports.isPrime = isPrime;
 
 exports.lastIn = lastIn;
@@ -171,4 +173,25 @@ function getMultiplesBelow(multiple, max) {
   }
 
   return cleanResult(max, result);
+}
+
+// returns boolean after checking for palindrome (checks input as string)
+function isPalindrome(input) {
+  let word = input.toString();
+
+  if (word == word.split('').reverse().join('')) {
+    return true;
+  }
+
+  return false;
+}
+
+
+// returns boolean based on if divisor is cleanly divisible by possible factor
+function isFactor(possibleFactor, number) {
+  if (number % possibleFactor === 0) {
+    return true;
+  }
+
+  return false;
 }
