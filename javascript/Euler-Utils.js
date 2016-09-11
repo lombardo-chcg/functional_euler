@@ -59,7 +59,7 @@ function squared(number) {
 
 // returns boolean
 function isPrime(primeCandidate) {
-  if (primeCandidate % 2 == 0 ) { return false }
+  if (primeCandidate > 2 && primeCandidate % 2 === 0 ) { return false }
 
   if (factorsOf(primeCandidate).length == 1) {
     return true;
