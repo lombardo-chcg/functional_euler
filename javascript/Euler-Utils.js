@@ -21,6 +21,7 @@ exports.multiplyArray = multiplyArray;
 exports.isFactor = isFactor;
 exports.isPalindrome = isPalindrome;
 exports.isPrime = isPrime;
+exports.isPythagoreanTriple = isPythagoreanTriple;
 
 exports.lastIn = lastIn;
 exports.nextToLastIn = nextToLastIn;
@@ -36,13 +37,25 @@ exports.squared = squared;
 exports.uniqueNumbersOnly = uniqueNumbersOnly;
 
 
-// returns an array holding all numbers from 1 to provided num
-function createRange(num) {
+// returns an array holding a range.
+// OPTIONS: provide a single argument, it uses 1 as the starting point
+// OPTIONS: provide two arguemtns, it uses the first as the starting point and 2nd as the ending point
+function createRange(args) {
+
+  if (arguments.length === 1) {
+    return generateRange(1, arguments[0]);
+  }
+
+  return generateRange(arguments[0], arguments[1])
+}
+
+// private
+function generateRange(start, end) {
   let result = [];
 
-  for (let current = 1; current <= num; current += 1) {
+  for (let current = start; current <= end; current += 1) {
     result.push(current)
-  }
+    }
 
   return result;
 }
@@ -66,6 +79,11 @@ function isPrime(primeCandidate) {
   }
 
   return false;
+}
+
+// returns boolean check on 3 digits for Pythagorean truth (a** + b** = c**)
+function isPythagoreanTriple(a,b,c) {
+  return squared(a) + squared(b) === squared(c)
 }
 
 // returns an array of factors for a number, up to that number's square root

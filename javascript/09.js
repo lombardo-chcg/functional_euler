@@ -11,16 +11,12 @@ function pythagoreanTripleWithSum(sum) {
     for (b = a+1; b < sum; b += 1 ) {
       let c = sum - a - b;
 
-      if (isPythagoreanTriple(a,b,c)) {
+      if (E.isPythagoreanTriple(a,b,c)) {
         return E.multiplyArray([a,b,c]);
       }
     }
   }
   return 0;
-}
-
-function isPythagoreanTriple(a,b,c) {
-  return E.squared(a) + E.squared(b) === E.squared(c)
 }
 
 const answer = pythagoreanTripleWithSum(1000);
