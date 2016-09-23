@@ -6,6 +6,19 @@
 // import my homemade 'Euler Utils' library
 const E = require('./Euler-Utils.js');
 
-const answer = E.sumArray(E.uniqueNumbersOnly(E.combineArrays(E.getMultiplesBelow(3,1000), E.getMultiplesBelow(5,1000))))
+const answer =
+  E.createRange(999)
+    .filter((num) => fancyFizzBuzz(num))
+    .reduce((acc, cur) => acc + cur);
+
+function fancyFizzBuzz(num) {
+  if (num % 3 == 0) { return true };
+
+  if (num % 5 == 0) { return true };
+
+  return false;
+}
+
+// const answer = E.sumArray(E.uniqueNumbersOnly(E.combineArrays(E.getMultiplesBelow(3,1000), E.getMultiplesBelow(5,1000))))
 console.log(answer);
 
