@@ -11,13 +11,15 @@ const E = require('./Euler-Utils.js');
 const P = require ('./Prime-Sieve.js')
 
 
-// Start the timer ///////////////////////////////////
+// Start the timer
 const start = new Date().getTime();
+
 
 const answer = E.sumArray(P.primeSieve(2000000));
 console.log(answer); //=> 142913828922
 
-// Stop the timer //////////////////////////////////
+
+// Stop the timer 
 const end = new Date().getTime();
 const elapsed = (end - start) * .001;
 

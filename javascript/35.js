@@ -131,16 +131,14 @@ function groupBy(array, property) {
 
 function isMirrorNumber(numberString) {
 
-
   /*
   *
-  * COMPLETELY WRONG
-  *  THIS IS A PALINDROME CHECK
-  *  NOT WHAT YOU WANT
+  * // TO DO:
+  * FIX THIS JANK ASS SHIT
+  * THIS IS A PALINDROME CHECK
+  * NOT THE RIGHT TOOL FOR THIS JOB
   *
   */
-
-
 
   let asArray =
     numberString
@@ -153,10 +151,6 @@ function isMirrorNumber(numberString) {
 
   return arraysIdentical(asArray, asReversedArray)
 }
-
-let asdflj = isMirrorNumber('110011');
-console.log(asdflj)
-
 
 function findGroupsWhereKeyLengthEqualsArrayLength(groupedCollection) {
   let keys = Object.keys(groupedCollection);

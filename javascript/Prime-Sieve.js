@@ -7,6 +7,9 @@ var exports = module.exports = {};
 
 exports.primeSieve = primeSieve;
 
+
+//PRIVATE
+// functional incremental output
 const numsFrom = (input) => {
   let number = input;
 
@@ -15,6 +18,9 @@ const numsFrom = (input) => {
   }
 }
 
+//PRIVATE
+// returns an array containing numbers that are not a multipe of the input provided,
+// within the range specifed by 2nd param
 function sieveMultiplesOf(multiple, max) {
   let output = [];
   let iterator = numsFrom(multiple);
@@ -32,7 +38,8 @@ function sieveMultiplesOf(multiple, max) {
   return E.cleanResult(max, output);
 }
 
-
+//PRIVATE
+// takes an array and sieves out multiples of first param
 function reSieve(multiple, array) {
 
   let funVariable = multiple + multiple;
@@ -56,6 +63,8 @@ function reSieve(multiple, array) {
   // });
 }
 
+// in an array of numbers and booleans, for example,
+// finds the next number in the array given a starting number
 function findNextNumberInArray(number, array) {
   let index = array.indexOf(number) + 1;
   let nextNum;
@@ -73,7 +82,8 @@ function findNextNumberInArray(number, array) {
   return nextNum;
 }
 
-
+// PUBLIC
+// returns an array of all prime numbers below the max
 function primeSieve(max) {
   let output = sieveMultiplesOf(2, max)
   let counter = 3;
