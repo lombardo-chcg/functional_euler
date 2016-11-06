@@ -3,6 +3,8 @@
 var exports = module.exports = {};
 
 // alphabetical order
+exports.arraysIdentical = arraysIdentical;
+
 exports.cleanResult = cleanResult;
 exports.combineArrays = combineArrays;
 exports.convertsArgsToArray = convertsArgsToArray;
@@ -62,7 +64,7 @@ function generateRange(start, end) {
 
 // takes a collection and returns the sum of the collection when every number in the collection is squared
 function sumArrayNumsSquared(array) {
-  return array.reduce( (accumulator, current) => accumulator += squared(current))
+  return array.reduce((accumulator, current) => accumulator += squared(current))
 }
 
 // returns a number squared
@@ -231,3 +233,13 @@ function isFactor(possibleFactor, number) {
 
   return false;
 }
+
+// compares 2 arrays to see if their contents are identical
+function arraysIdentical(a, b) {
+    var i = a.length;
+    if (i != b.length) return false;
+    while (i--) {
+        if (a[i] !== b[i]) return false;
+    }
+    return true;
+};
