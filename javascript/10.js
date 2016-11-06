@@ -7,25 +7,21 @@
 // import my homemade 'Euler Utils' library
 const E = require('./Euler-Utils.js');
 
-function primeSieve(max) {
-  let range = E.createRange(2, max);
-
-  let newRange = range
-    .filter( (number) => number % 2 != 0)
-    .filter( (number) => number % 3 != 0)
-    .filter( (number) => number % 5 != 0)
-    .filter( (number) => number % 7 != 0)
-
-  newRange.unshift(7)
-  newRange.unshift(5)
-  newRange.unshift(3)
-  newRange.unshift(2)
-  return newRange
-}
-
-console.log(primeSieve(2000000).length)
-console.log(E.createRange(2,2000000).length)
+// import my homemade 'Prime Sieve' library
+const P = require ('./Prime-Sieve.js')
 
 
-const answer = E.sumArray(E.primesIn(primeSieve(2000000)));
-console.log(answer);
+// Start the timer
+const start = new Date().getTime();
+
+
+const answer = E.sumArray(P.primeSieve(2000000));
+console.log(answer); //=> 142913828922
+
+
+// Stop the timer 
+const end = new Date().getTime();
+const elapsed = (end - start) * .001;
+
+console.log('Execution time: ' + elapsed + ' seconds');
+//=> Execution time: 84105.303 seconds / 23.3625841667 hours

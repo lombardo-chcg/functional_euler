@@ -3,6 +3,8 @@
 var exports = module.exports = {};
 
 // alphabetical order
+exports.arraysIdentical = arraysIdentical;
+
 exports.cleanResult = cleanResult;
 exports.combineArrays = combineArrays;
 exports.convertsArgsToArray = convertsArgsToArray;
@@ -62,7 +64,7 @@ function generateRange(start, end) {
 
 // takes a collection and returns the sum of the collection when every number in the collection is squared
 function sumArrayNumsSquared(array) {
-  return array.reduce( (accumulator, current) => accumulator += squared(current))
+  return array.reduce((accumulator, current) => accumulator += squared(current))
 }
 
 // returns a number squared
@@ -89,22 +91,24 @@ function isPythagoreanTriple(a,b,c) {
 // returns an array of factors for a number, up to that number's square root
 function factorsToSquareRootOf(number) {
   let possibleFactors = createRange(Math.sqrt(number));
-  return possibleFactors.filter( (possibleFactor) => number % possibleFactor == 0);
+  return possibleFactors.filter((possibleFactor) => number % possibleFactor == 0);
 }
 
 // returns an array of factors for a number
 function factorsOf(number) {
   let possibleFactors = createRange(number/2);
-  return possibleFactors.filter( (possibleFactor) => number % possibleFactor == 0);
+  return possibleFactors.filter((possibleFactor) => number % possibleFactor == 0);
 }
 
 // filters an array, returns a new array containing only primes
 function primesIn(array) {
-  return array.filter( (number) => isPrime(number) );
+  return array.filter((number) => isPrime(number));
 }
 
 // returns the last item in an array
 function lastIn(array){
+  if (array.length === 0) {return 0};
+
   return array[array.length - 1];
 }
 
@@ -115,7 +119,7 @@ function nextToLastIn(array) {
 
 // returns an array containing only even numbers
 function evenNumsInArray(array) {
-  return array.filter( (number) => number % 2 == 0 )
+  return array.filter((number) => number % 2 == 0 )
 }
 
 // returns an array all Fib numbers below the max
@@ -129,11 +133,12 @@ function getFibSequence(max) {
   return cleanResult(max, fibSequence)
 }
 
-// if the final number in an array is greater than the supplied max, it returns the array without the final number
+// if the final number(s) in an array are greater than the supplied max,
+// returns the array without the final numbers
 function cleanResult(max, array) {
   if (lastIn(array) >= max) {
     array.pop();
-    return array;
+    cleanResult(max, array)
   }
 
   return array;
@@ -152,11 +157,11 @@ function convertsArgsToArray(args) {
 
 // returns the sum of all numbers in an array
 function sumArray(array) {
-  return array.reduce( (accumulator, current) => accumulator + current )
+  return array.reduce((accumulator, current) => accumulator + current )
 }
 
 function multiplyArray(array) {
-  return array.reduce( (accumulator, current) => accumulator * current )
+  return array.reduce((accumulator, current) => accumulator * current )
 }
 
 // returns an array containing only unique elements (a set)
@@ -164,7 +169,7 @@ function uniqueNumbersOnly(array) {
   let map = {};
   let result = [];
 
-  array.forEach( (number) => {
+  array.forEach((number) => {
     if (!map[number]) {
       map[number] = true;
       result.push(number)
@@ -178,16 +183,18 @@ function uniqueNumbersOnly(array) {
 function combineArrays(putSomeArraysHere) {
   let result = [];
 
-  convertsArgsToArray(arguments).forEach( (array) => Array.prototype.push.apply(result, array));
+  convertsArgsToArray(arguments)
+    .forEach((array) => Array.prototype.push.apply(result, array));
 
   return result;
 }
 
-// takes and numbers of arrays and returns a sum of all their elements
+// takes any numbers of arrays and returns a sum of all their elements
 function sumOfArrays(putSomeArraysHere) {
   let result = 0;
 
-  convertsArgsToArray(arguments).forEach( (array) => result += sumArray(array))
+  convertsArgsToArray(arguments)
+    .forEach((array) => result += sumArray(array))
 
   return result;
 }
@@ -226,3 +233,13 @@ function isFactor(possibleFactor, number) {
 
   return false;
 }
+
+// compares 2 arrays to see if their contents are identical
+function arraysIdentical(a, b) {
+    var i = a.length;
+    if (i != b.length) return false;
+    while (i--) {
+        if (a[i] !== b[i]) return false;
+    }
+    return true;
+};
