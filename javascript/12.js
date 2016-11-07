@@ -17,12 +17,12 @@ function numsFrom(input) {
 }
 
 function makeNthTriangleNumber(nth) {
-	let iterator = numsFrom(0);
+	let getNextNaturalNumber = numsFrom(0);
 	let output = 0;
 	let counter = 0
 
 	while (counter < nth) {
-		output += iterator();
+		output += getNextNaturalNumber();
 		counter ++;
 	}
 
@@ -31,16 +31,16 @@ function makeNthTriangleNumber(nth) {
 
 function getFactors(num) {
 	let factors = [];
-	let iterator = numsFrom(0);
+	let getNextNaturalNumber = numsFrom(0);
 
-	let cur = iterator();
+	let cur = getNextNaturalNumber();
 
 	while (cur <= num/2) {
 		if (E.isFactor(cur, num)) {
 			factors.push(cur)
 		}
 
-		cur = iterator();
+		cur = getNextNaturalNumber();
 	}
 
 	factors.push(num);
