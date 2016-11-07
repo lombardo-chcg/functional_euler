@@ -16,10 +16,10 @@ function maxProductOfEastWestNeighbors(masterArray) {
 
       if(squareHasRightNeighbors(index, row)) {
         sum = (
-          Number(square)
-          * Number(row[index+1])
-          * Number(row[index+2])
-          * Number(row[index+3])
+          square
+          * row[index+1]
+          * row[index+2]
+          * row[index+3]
         );
 
         if (sum > max) {
@@ -42,10 +42,10 @@ function maxProductOfNorthSouthNeighbors(masterArray) {
 
       row.forEach((square, squareIndex) => {
         sum = (
-          Number(square)
-          * Number(masterArray[rowIndex+1][squareIndex])
-          * Number(masterArray[rowIndex+2][squareIndex])
-          * Number(masterArray[rowIndex+3][squareIndex])
+          square
+          * masterArray[rowIndex+1][squareIndex]
+          * masterArray[rowIndex+2][squareIndex]
+          * masterArray[rowIndex+3][squareIndex]
         );
 
         if (sum > max) {
@@ -68,10 +68,10 @@ function maxProductOfSouthWestNeighbors(masterArray) {
 
       if (squareHasSouthWestDiagonalNeighbors(squareIndex, rowIndex, masterArray)) {
         sum = (
-          Number(square)
-          * Number(masterArray[rowIndex+1][squareIndex+1])
-          * Number(masterArray[rowIndex+2][squareIndex+2])
-          * Number(masterArray[rowIndex+3][squareIndex+3])
+          square
+          * masterArray[rowIndex+1][squareIndex+1]
+          * masterArray[rowIndex+2][squareIndex+2]
+          * masterArray[rowIndex+3][squareIndex+3]
         );
       }
 
@@ -157,11 +157,17 @@ function squareHasSouthEastDiagonalNeighbors(squareIndex, currentArrayIndex, mas
   return false;
 }
 
+// transform input into matrix for processing
 // *****************************************************
 function makeMatrix(longAssString) {
   return input
       .match(/([\d]{2}\s){19}[\d]{2}/g)
-      .map((row) => row.split(' '));
+      .map((row) => row.split(' '))
+      .map(convertArrayOfStringsToNums)
+}
+
+function convertArrayOfStringsToNums(array) {
+  return array.map(arrayItem => Number(arrayItem))
 }
 
 // *****************************************************
@@ -180,5 +186,16 @@ function solution(input){
   );
 }
 
+// Start the timer
+const start = new Date().getTime();
+
 const answer = solution(input);
 console.log(answer);
+
+// Stop the timer
+const end = new Date().getTime();
+const elapsed = (end - start) * .001;
+
+console.log('Execution time: ' + elapsed + ' seconds');
+//=> Converting each square to number in each iteration: Execution time: 0.031 seconds
+//=> Convert all squares to numbers in the inital #makeMatrix function: literally no difference!
