@@ -27,27 +27,16 @@ const isPartOfAmicablePair = (a) => {
 }
 
 const solution = (num) => {
-  let counter = 1;
-  let amicableNums = [];
 
-  while (counter < 10000) {
-    if (isPartOfAmicablePair(counter)) {
-      amicableNums.push(counter)
-    }
-
-    counter += 1;
-  }
-
-  console.log(amicableNums)
-  // => [ 220, 284, 1184, 1210, 2620, 2924, 5020, 5564, 6232, 6368 ]
-
-  return E.sumArray(amicableNums)
+  return E.createRange(num-1)
+    .filter(isPartOfAmicablePair)
+    .reduce((acc, cur) => acc + cur)
 }
 
 // Start the timer
 const start = new Date().getTime();
 
-const answer = solution(284);
+const answer = solution(10000);
 console.log(answer);
 // => 31626
 
@@ -56,4 +45,4 @@ const end = new Date().getTime();
 const elapsed = (end - start) * .001;
 
 console.log('Execution time: ' + elapsed + ' seconds');
-//=> Execution time: 7.582 seconds
+//=> Execution time: 7.414000000000001 seconds
