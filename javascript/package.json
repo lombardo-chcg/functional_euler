@@ -1,0 +1,22 @@
+{
+  "name": "project-euler",
+  "version": "1.0.0",
+  "description": "project euler solutions",
+  "main": "01.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lombardo-chcg/functional_euler.git"
+  },
+  "author": "dominick lombardo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lombardo-chcg/functional_euler/issues"
+  },
+  "homepage": "https://github.com/lombardo-chcg/functional_euler#readme",
+  "dependencies": {
+    "big-integer": "^1.6.17"
+  }
+}
