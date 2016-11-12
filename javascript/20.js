@@ -1,27 +1,34 @@
 'use strict';
 
-//2**15 = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.
-
-// What is the sum of the digits of the number 2**1000?
+// problem details go here
 
 const bigInt = require("big-integer");
 
-const solution = (exponent) => {
+// type of n must be bigInt
+const factorial = (n) => {
+  if (n.equals(1)) {
+    return 1;
+  }
 
-  return bigInt(2)
-    .pow(exponent)
+  return n.times( factorial(n.minus(1)) );
+}
+
+const solution = (n) => {
+
+  return factorial(n)
     .toString()
-    .split("")
-    .map(i =>  Number(i))
+    .split('')
+    .map(i => Number(i))
     .reduce((acc, cur) => acc + cur);
 }
+
+const answer = solution(bigInt(100));
 
 // Start the timer
 const start = new Date().getTime();
 
-const answer = solution(1000);
 console.log(answer);
-// => 1366
+// => 648
 
 // Stop the timer
 const end = new Date().getTime();
