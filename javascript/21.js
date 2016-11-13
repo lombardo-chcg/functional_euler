@@ -17,9 +17,8 @@ const sumOfDivisors = (num) => {
 
 const isPartOfAmicablePair = (a) => {
   let b = sumOfDivisors(a);
-  let c = sumOfDivisors(b);
 
-  if (a !== b && a === c) {
+  if (a !== b && a === sumOfDivisors(b)) {
     return true;
   }
 
