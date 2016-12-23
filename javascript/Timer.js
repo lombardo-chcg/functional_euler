@@ -2,15 +2,18 @@
 
 var exports = module.exports = {};
 
-exports.timeOperation = timeOperation;
+exports.executeAndTime = executeAndTime;
 
-function timeOperation(func, args) {
+function executeAndTime(functionToTime, [args]) {
   const start = new Date().getTime();
 
-  // do work
+  const solution = functionToTime.call(null, [args]);
 
   const end = new Date().getTime();
   const elapsed = (end - start) * .001;
 
-  return 'Execution time: ' + elapsed + ' seconds';
+  return {
+    Solution: solution,
+    ExecutionTime: elapsed
+  }
 }

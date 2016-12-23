@@ -2,8 +2,9 @@
 
 // problem details go here
 
-// import my homemade 'Euler Utils' library
+// import my homemade 'Euler Utils' library & function timer
 const E = require('./Euler-Utils.js');
+const T = require('./Timer.js');
 
 const fs = require('fs');  // node's File I/O library
 
@@ -25,16 +26,6 @@ const solution = () => {
     .reduce((acc, cur) => acc + cur);
 }
 
-// Start the timer
-const start = new Date().getTime();
-
-const answer = solution();
-console.log(answer);
-// => 871198282
-
-// Stop the timer
-const end = new Date().getTime();
-const elapsed = (end - start) * .001;
-
-console.log('Execution time: ' + elapsed + ' seconds');
-//=> Execution time: Execution time: 0.063 seconds
+const output = T.executeAndTime(solution, []);
+console.log(output);
+// { Solution: 871198282, ExecutionTime: 0.037 }
