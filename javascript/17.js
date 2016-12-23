@@ -27,9 +27,9 @@ const convertIntToWords = (int) => {
   }
 
   if (int >= 100 && int < 1000) {
-    let hundredsColumn = Number(int.toString()[0]);
-    let tensColumn = Number(int.toString()[1]);
-    let onesColumn = Number(int.toString()[2]);
+    let hundredsColumn  = Number(int.toString()[0]);
+    let tensColumn      = Number(int.toString()[1]);
+    let onesColumn      = Number(int.toString()[2]);
 
     let lastTwoDigits = convertIntToWords(Number([tensColumn, onesColumn].join('')));
 
@@ -66,7 +66,6 @@ const solution = (max) => {
   let charCount = 0;
 
   while (counter <= max) {
-    console.log(convertIntToWords(counter))
     charCount += convertIntToWords(counter).length;
     counter += 1;
   }

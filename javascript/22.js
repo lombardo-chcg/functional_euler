@@ -5,7 +5,7 @@
 // import my homemade 'Euler Utils' library
 const E = require('./Euler-Utils.js');
 
-const fs = require('fs')
+const fs = require('fs');  // node's File I/O library
 
 const getNameScore = (string) => {
 

@@ -101,7 +101,7 @@ const input = `37107287533902102798797998220837590246510135740250
 20849603980134001723930671666823555245252804609722
 53503534226472524250874054075591789781264330331690`
 
-function processInput(input) {
+function solution(input) {
   return (
     input.split(/\n/)
     .map(num => Number(num))
@@ -109,5 +109,5 @@ function processInput(input) {
   );
 }
 
-const answer = processInput(input);
+const answer = solution(input);
 console.log(answer)
