@@ -2,12 +2,7 @@ package com.lombardo.app.objs
 
 import scala.collection.mutable.ArrayBuffer
 
-object PrimeCalculator {
-  val pc = new PrimeCalculator
-  pc
-}
 case class InvalidInputException() extends Exception
-case class SmartPrime(n: Int, nth: Int, next: Int)
 
 class PrimeCalculator {
   def primesUnder(n: Int): List[Int] = {

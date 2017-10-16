@@ -4,7 +4,6 @@ import com.lombardo.app.objs.PrimeCalculator
 
 class Euler37(implicit val primes: List[Int], val pc: PrimeCalculator) {
   private lazy val primesMap = pc.primeMap(primes)
-//    primes.foldLeft(Map.empty[Int, Boolean])((acc, cur) => acc + (cur -> true))
 
   def solve:Int = {
     val disallowed = List(2, 3, 5, 7)

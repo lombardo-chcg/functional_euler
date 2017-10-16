@@ -1,18 +1,8 @@
 package com.lombardo.app.euler
 
-object Helpers {
-  def isPalindrome(w: String): Boolean = {
-    w match {
-      case _ if w.length == 1 => true
-      case _ if w.head != w.last => false
-      case _ if w.length == 2 && w.head == w.last => true
-      case _ => this.isPalindrome(w.tail.dropRight(1))
-    }
-  }
-}
+import com.lombardo.app.objs.Helpers.isPalindrome
 
 class Euler36 {
-  import com.lombardo.app.objs.Helpers.isPalindrome
 
   def allPalindromes(n: Int): List[Int] = {
     (1 until n).filter(x => {

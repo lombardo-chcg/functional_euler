@@ -15,7 +15,8 @@ class Euler41(implicit val pc: PrimeCalculator) {
   }
 
   def solve: Int = {
-    val p = time("primesUnder(99999999)") { pc.primesUnder(7654321) }
+    // 7654321 is a tuned upper bound based on multiple iterations, started with a much higher number and
+    val p = time("primesUnder(7654321)") { pc.primesUnder(7654321) }
     time("filter(isPandigital).last"){
       p.filter(isPandigital).last
     }
