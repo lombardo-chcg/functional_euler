@@ -1,0 +1,28 @@
+package com.lombardo.app
+
+import com.lombardo.app.euler.Euler37
+import com.lombardo.app.objs.{PrimeCalculator, Utils}
+import org.scalatest.{FlatSpec, Matchers}
+
+class Euler37Test extends FlatSpec with Matchers {
+  implicit val pc = new PrimeCalculator
+
+  it should "have good helpers" in {
+    implicit val lowPrimes = pc.primesUnder(100000)
+    val e = new Euler37
+    e.leftToRightPrime(3797) should equal(true)
+    e.rightToLeftPrime(3797) should equal(true)
+  }
+
+  it should "solve" in {
+    Utils.time("Euler37 solve") {
+      implicit val lowPrimes = Utils.time("Euler37 get primesUnder(1000000)") {
+        pc.primesUnder(1000000)
+      }
+      val e = new Euler37
+      Utils.time("Euler37 inner run time") {
+        e.solve should be(748317)
+      }
+    }
+  }
+}
