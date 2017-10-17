@@ -1,5 +1,5 @@
 package com.lombardo.app
-import com.lombardo.app.objs.Helpers._
+import com.lombardo.app.helpers.Helpers._
 import org.scalatest.{FlatSpec, Matchers}
 
 class HelpersTest extends FlatSpec with Matchers {

@@ -1,8 +1,8 @@
 package com.lombardo.app
 
-import com.lombardo.app.euler._
-import com.lombardo.app.objs.PrimeCalculator
-import com.lombardo.app.objs.Utils.time
+import com.lombardo.app.problems._
+import com.lombardo.app.helpers.PrimeCalculator
+import com.lombardo.app.helpers.Utils.time
 import org.scalatest.{FlatSpec, Matchers}
 
 class zzzTestTemplate extends FlatSpec with Matchers {

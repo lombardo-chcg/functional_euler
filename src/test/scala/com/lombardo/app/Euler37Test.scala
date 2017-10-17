@@ -1,7 +1,7 @@
 package com.lombardo.app
 
-import com.lombardo.app.euler.Euler37
-import com.lombardo.app.objs.{PrimeCalculator, Utils}
+import com.lombardo.app.problems.Euler37
+import com.lombardo.app.helpers.{PrimeCalculator, Utils}
 import org.scalatest.{FlatSpec, Matchers}
 
 class Euler37Test extends FlatSpec with Matchers {

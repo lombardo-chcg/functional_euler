@@ -1,6 +1,6 @@
-package com.lombardo.app.euler
+package com.lombardo.app.problems
 
-import com.lombardo.app.objs.Helpers.isPalindrome
+import com.lombardo.app.helpers.Helpers.isPalindrome
 
 class Euler36 {
 

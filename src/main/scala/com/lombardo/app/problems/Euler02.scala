@@ -1,4 +1,4 @@
-package com.lombardo.app.euler
+package com.lombardo.app.problems
 
 class Euler02 {
 

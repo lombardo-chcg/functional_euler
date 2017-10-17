@@ -1,5 +1,5 @@
 package com.lombardo.app
-import com.lombardo.app.euler.Euler36
+import com.lombardo.app.problems.Euler36
 import org.scalatest.{FlatSpec, Matchers}
 
 class Euler36Test extends FlatSpec with Matchers {
