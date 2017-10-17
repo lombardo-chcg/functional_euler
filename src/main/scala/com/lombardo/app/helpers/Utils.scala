@@ -1,4 +1,4 @@
-package com.lombardo.app.objs
+package com.lombardo.app.helpers
 
 object Utils {
 //  implicit class time[T](func: => T) {

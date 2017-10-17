@@ -1,6 +1,6 @@
-package com.lombardo.app.euler
+package com.lombardo.app.problems
 
-import com.lombardo.app.objs.PrimeCalculator
+import com.lombardo.app.helpers.PrimeCalculator
 
 class Euler49(implicit val pc: PrimeCalculator) {
   def canonicalPrimeMap(upperBound: Int): Map[String, List[Int]] = {

@@ -1,6 +1,6 @@
 package com.lombardo.app
-import com.lombardo.app.objs.PrimeCalculator
-import com.lombardo.app.objs.Utils._
+import com.lombardo.app.helpers.PrimeCalculator
+import com.lombardo.app.helpers.Utils._
 import org.scalatest.{FlatSpec, Matchers}
 
 class PrimeCalculatorTest extends FlatSpec with Matchers {
@@ -49,12 +49,13 @@ class PrimeCalculatorTest extends FlatSpec with Matchers {
   }
 
   it should "find prime factors" in {
-    pc.primeFactors(6, pc.primesUnder(6 + 1)) should be(List(2, 3))
-    pc.primeFactors(8, pc.primesUnder(8 + 1)) should be(List(2, 2, 2))
-    pc.primeFactors(14, pc.primesUnder(14 + 1)) should be(List(2, 7))
-    pc.primeFactors(15, pc.primesUnder(15 + 1)) should be(List(3, 5))
-    pc.primeFactors(644, pc.primesUnder(644 + 1)) should be(List(2,2,7,23))
-    pc.primeFactors(645, pc.primesUnder(645 + 1)) should be(List(3, 5, 43))
-    pc.primeFactors(646, pc.primesUnder(646 + 1)) should be(List(2,17,19))
+    val primeList = pc.primesUnder(1000)
+    pc.primeFactors(6, primeList) should be(List(2, 3))
+    pc.primeFactors(8, primeList) should be(List(2, 2, 2))
+    pc.primeFactors(14, primeList) should be(List(2, 7))
+    pc.primeFactors(15, primeList) should be(List(3, 5))
+    pc.primeFactors(644, primeList) should be(List(2,2,7,23))
+    pc.primeFactors(645, primeList) should be(List(3, 5, 43))
+    pc.primeFactors(646, primeList) should be(List(2,17,19))
   }
 }

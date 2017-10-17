@@ -1,4 +1,4 @@
-package com.lombardo.app.objs
+package com.lombardo.app.helpers
 
 import scala.collection.mutable.ArrayBuffer
 

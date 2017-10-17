@@ -1,4 +1,4 @@
-package com.lombardo.app.objs
+package com.lombardo.app.helpers
 
 object Helpers {
   def isPalindrome(w: String): Boolean = {

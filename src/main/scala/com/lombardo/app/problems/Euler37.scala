@@ -1,6 +1,6 @@
-package com.lombardo.app.euler
+package com.lombardo.app.problems
 
-import com.lombardo.app.objs.PrimeCalculator
+import com.lombardo.app.helpers.PrimeCalculator
 
 class Euler37(implicit val primes: List[Int], val pc: PrimeCalculator) {
   private lazy val primesMap = pc.primeMap(primes)

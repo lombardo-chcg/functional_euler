@@ -1,6 +1,6 @@
-package com.lombardo.app.euler
+package com.lombardo.app.problems
 
-import com.lombardo.app.objs.PrimeCalculator
+import com.lombardo.app.helpers.PrimeCalculator
 
 class Euler47(implicit val pc: PrimeCalculator) {
   
