@@ -12,7 +12,6 @@ class Euler49(implicit val pc: PrimeCalculator) {
   }
 
   def solve: List[List[Int]] = {
-    canonicalPrimeMap(10000)
-      .flatMap(p => p._2.combinations(3).filter(isArithmeticSequence)).toList
+    canonicalPrimeMap(10000).flatMap(p => p._2.combinations(3).filter(isArithmeticSequence)).toList
   }
 }

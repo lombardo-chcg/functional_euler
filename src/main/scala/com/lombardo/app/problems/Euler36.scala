@@ -5,7 +5,7 @@ import com.lombardo.app.helpers.Helpers.isPalindrome
 class Euler36 {
 
   def allPalindromes(n: Int): List[Int] = {
-    (1 until n).filter(x => {
+    Stream.from(1).take(n).filter(x => {
       val base10 = x.toString
       val base2 = x.toBinaryString
       if (base2.startsWith("0")) false

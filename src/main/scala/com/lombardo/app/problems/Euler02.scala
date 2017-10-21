@@ -8,6 +8,6 @@ class Euler02 {
   }
 
   def solve(n: Int):Int = {
-      fibSequence(n).filter((num) => num % 2 != 0).sum
+    fibSequence(n).filter((num) => num % 2 != 0).sum
   }
 }
