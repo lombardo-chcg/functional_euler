@@ -10,7 +10,7 @@ class Euler02Test extends FlatSpec with Matchers {
   val e = new Euler02
 
   it should "solve" in {
-    time(s"$getClass solve") {
+    time(s"${getClass.getSimpleName.replace("Test", "")}") {
       e.solve(4000000) should be(4613732)
     }
   }

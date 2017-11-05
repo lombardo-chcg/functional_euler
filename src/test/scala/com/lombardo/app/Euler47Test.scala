@@ -10,7 +10,7 @@ class Euler47Test extends FlatSpec with Matchers {
   val e = new Euler47
 
   it should "solve" in {
-    time(s"$getClass solve") {
+    time(s"${getClass.getSimpleName.replace("Test", "")}") {
       // the upper bound input here is purely based on educated guesses
       e.solve(2, 100) should be(List(14,15))
       e.solve(3, 1000) should be(List(644,645,646))

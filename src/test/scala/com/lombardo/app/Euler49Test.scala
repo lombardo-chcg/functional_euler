@@ -14,7 +14,7 @@ class Euler49Test extends FlatSpec with Matchers {
   }
 
   it should "solve" in {
-    time(s"$getClass solve") {
+    time(s"${getClass.getSimpleName.replace("Test", "")}") {
       e.solve should contain(List(1487, 4817, 8147))
       e.solve should contain(List(2969, 6299, 9629))
     }
