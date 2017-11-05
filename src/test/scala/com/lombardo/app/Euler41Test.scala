@@ -16,7 +16,7 @@ class Euler41Test extends FlatSpec with Matchers {
   }
 
   it should "solve" in {
-    time(s"$getClass SOLVE") {
+    time(s"${getClass.getSimpleName.replace("Test", "")}") {
       e.solve should equal(7652413)
     }
   }

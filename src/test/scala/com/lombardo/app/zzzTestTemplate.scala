@@ -13,7 +13,7 @@ class zzzTestTemplate extends FlatSpec with Matchers {
   }
 
   it should "solve" in {
-    time(s"$getClass solve") {
+    time(s"${getClass.getSimpleName.replace("Test", "")}") {
     }
   }
 }

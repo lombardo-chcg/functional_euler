@@ -13,7 +13,7 @@ class Euler15Test extends FlatSpec with Matchers {
   }
 
   "it also" should "solve" in {
-    time(s"$getClass solve") {
+    time(s"${getClass.getSimpleName.replace("Test", "")}") {
       e.solve(2L) should be(6)
       e.solve(3L) should be(20)
       e.solve(4L) should be(70)

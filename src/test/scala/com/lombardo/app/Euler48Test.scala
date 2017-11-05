@@ -13,7 +13,7 @@ class Euler48Test extends FlatSpec with Matchers {
   }
 
   it should "solve" in {
-    time(s"$getClass solve") {
+    time(s"${getClass.getSimpleName.replace("Test", "")}") {
       e.solve(10).toString should be("10405071317")
       e.solve(1000).toString.takeRight(10) should be("9110846700")
     }
