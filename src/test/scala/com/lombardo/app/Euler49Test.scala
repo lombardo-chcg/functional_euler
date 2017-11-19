@@ -1,8 +1,8 @@
 package com.lombardo.app
 
-import com.lombardo.app.problems.Euler49
 import com.lombardo.app.helpers.PrimeCalculator
 import com.lombardo.app.helpers.Utils.time
+import com.lombardo.app.problems.Euler49
 import org.scalatest.{FlatSpec, Matchers}
 
 class Euler49Test extends FlatSpec with Matchers {
