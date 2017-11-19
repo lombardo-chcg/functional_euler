@@ -1,11 +1,13 @@
 package com.lombardo.app.problems
 
+import com.lombardo.app.helpers.Helpers._
+
 import scala.io.Source
 
 class Euler42 {
-  def triangleNums(max: Int): Stream[Int] = Stream.from(1).take(max).map(n => ((0.5 * n) * (n + 1)).toInt)
+  def triangleNums(max: Int): Stream[Int] = Stream.from(1).take(max).map(computeTriangle)
   def triNumsUnder(max: Int): Stream[Int] = {
-    Stream.from(1).map(n => ((0.5 * n) * (n + 1)).toInt).takeWhile(_ < max)
+    Stream.from(1).map(computeTriangle).takeWhile(_ < max)
   }
   def getNumericalValue(s: String): Int = {
     s.toCharArray.map(_.toInt - 64).sum

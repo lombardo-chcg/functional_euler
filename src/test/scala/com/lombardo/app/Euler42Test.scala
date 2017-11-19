@@ -11,7 +11,7 @@ class Euler42Test extends FlatSpec with Matchers {
 
   it should "have good helpers" in {
     e.triangleNums(10).toList should be(List(1, 3, 6, 10, 15, 21, 28, 36, 45, 55))
-    e.triNumsUnder(56) should be(List(1, 3, 6, 10, 15, 21, 28, 36, 45, 55))
+    e.triNumsUnder(56).toList should be(List(1, 3, 6, 10, 15, 21, 28, 36, 45, 55))
     e.getNumericalValue("SKY") should be(55)
   }
 

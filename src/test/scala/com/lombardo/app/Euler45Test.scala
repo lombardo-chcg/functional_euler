@@ -1,17 +1,19 @@
 package com.lombardo.app
 
-import com.lombardo.app.helpers.PrimeCalculator
 import com.lombardo.app.helpers.Utils.time
 import com.lombardo.app.problems._
 import org.scalatest.{FlatSpec, Matchers}
 
-class Euler02Test extends FlatSpec with Matchers {
-  implicit val pc = new PrimeCalculator
-  val e = new Euler02
+class Euler45Test extends FlatSpec with Matchers {
+  val e = new Euler45
+
+  it should "have good helpers" in {
+  }
 
   it should "solve" in {
     time(s"${getClass.getSimpleName.replace("Test", "")}") {
-      e.solve(4000000) should be(4613732)
+      e.solve(2) should be(40755)
+      e.solve(144) should be(1533776805)
     }
   }
 }
