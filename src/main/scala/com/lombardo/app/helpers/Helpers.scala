@@ -12,8 +12,11 @@ object Helpers {
     }
   }
 
+  def isPalindrome(n: Int): Boolean = isPalindrome(n.toString)
+  def isPalindrome(n: BigInt): Boolean = isPalindrome(n.toString)
+
   def computeTriangle(n: Int): Int = ((0.5 * n) * (n + 1)).toInt
-  def computePentagonal(n: Int): Int = (n * (3 * n - 1)) / 2
+  def computePentagonal(n: Long): Long = (n * (3 * n - 1)) / 2
   def computeHexagonal(n: Long): Long = n * (2 * n - 1)
 
 //  https://en.wikipedia.org/wiki/Pentagonal_number#Tests_for_pentagonal_numbers

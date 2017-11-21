@@ -3,14 +3,16 @@ import com.lombardo.app.helpers.Helpers._
 import org.scalatest.{FlatSpec, Matchers}
 
 class HelpersTest extends FlatSpec with Matchers {
-  it should "know about palindromes" in {
-    isPalindrome("585") should equal(true)
-    isPalindrome("no") should equal(false)
-    isPalindrome("1001001001") should equal(true)
-    isPalindrome("antidisestablishmentarianism") should equal(false)
-    isPalindrome("estimation") should equal(false)
-    isPalindrome("tattarrattat") should equal(true)
-    isPalindrome("999989") should equal(false)
+  "helpers" should "know about palindromes" in {
+    isPalindrome("585") should be(true)
+    isPalindrome("no") should be(false)
+    isPalindrome("1001001001") should be(true)
+    isPalindrome("antidisestablishmentarianism") should be(false)
+    isPalindrome("estimation") should be(false)
+    isPalindrome("tattarrattat") should be(true)
+    isPalindrome("999989") should be(false)
+    isPalindrome(121) should be(true)
+    isPalindrome(BigInt("4668731596684224866951378664")) should be(true)
   }
 
   it should "compute triangle numbers" in {
@@ -21,6 +23,7 @@ class HelpersTest extends FlatSpec with Matchers {
   it should "compute pentagonal numbers" in {
     computePentagonal(165) should be(40755)
     computePentagonal(5) should be(35)
+    (1L to 10L).map(computePentagonal) should be(List(1, 5, 12, 22, 35, 51, 70, 92, 117, 145))
   }
 
   it should "compute hexagonal numbers" in {
