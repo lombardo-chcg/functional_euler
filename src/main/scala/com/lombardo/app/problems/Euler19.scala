@@ -3,34 +3,16 @@ package com.lombardo.app.problems
 import java.time.LocalDate
 
 class Euler19 {
-  def daysInMonth(m: Int, y: Int): Int = {
-    val monthToNumDaysMap = Map(
-      1 -> 31,
-      2 -> handleFeb(y),
-      3 -> 31,
-      4 -> 30,
-      5 -> 31,
-      6 -> 30,
-      7 -> 31,
-      8 -> 31,
-      9 -> 30,
-      10 -> 31,
-      11 -> 30,
-      12 -> 31
-    )
-    monthToNumDaysMap(m)
+  def getDaysInMonth(m: Int, y: Int): Int = {
+    m match {
+      case 1 | 3 | 5 | 7 | 8 | 10 | 12 => 31
+      case 4 | 6 | 9 | 11 => 30
+      case 2 => handleFeb(y)
+    }
   }
 
-  def tomorrow(today: String): String = {
-    val week = Map(
-      "Mon" -> "Tue",
-      "Tue" -> "Wed",
-      "Wed" -> "Thur",
-      "Thur" -> "Fri",
-      "Fri" -> "Sat",
-      "Sat" -> "Sun",
-      "Sun" -> "Mon")
-    week(today)
+  def tomorrowAsValue(today: Int): Int = {
+    if (today == 7) 1 else today + 1
   }
 
   def handleFeb(y: Int): Int = {
@@ -46,45 +28,40 @@ class Euler19 {
     } else false
   }
 
-  case class e19(day: String = "Tue", firstSundays: Int = 0)
-
-  // TODO - some type of recursive solution using fold left.  instead...
+  //  Solve using Java 8 Date stuff
+  //  SOURCES
+  //  LocalDate.parse param: A String representing a date without a time-zone in the ISO-8601 calendar system, such as 2007-12-03 - need ISO scrub method
+  //  #getDayOfWeek.getValue: https://docs.oracle.com/javase/8/docs/api/java/time/DayOfWeek.html#SUNDAY
+  def isSunday(y:Int, m:Int, d: Int): Boolean = LocalDate.parse(makeIsoString(y,m,d)).getDayOfWeek.getValue == 7
   def isoScrub(n: Int): String = if (n < 10) s"0$n" else s"$n"
   def makeIsoString(y: Int, m: Int, d: Int): String = s"$y-${isoScrub(m)}-${isoScrub(d)}"
+
+  // TODO - some type of recursive solution using fold left.  instead...
   def solveJavaLocalDate: Seq[Int] = for {
     y <- 1901 to 2000
     m <- 1 to 12
-    d <- 1 to daysInMonth(m,y)
-    if ( d == 1 && LocalDate.parse(makeIsoString(y,m,d)).getDayOfWeek.getValue == 7)
+    d <- 1 to getDaysInMonth(m,y)
+    if ( d == 1 && isSunday(y,m,d))
   } yield d
-
-  // LocalDate.parse
-  // A date without a time-zone in the ISO-8601 calendar system, such as 2007-12-03
-
-  // SOURCES
-  // #getDayOfWeek.getValue: https://docs.oracle.com/javase/8/docs/api/java/time/DayOfWeek.html#SUNDAY
 
   // this is the same as the For Comprehension above:
   def useMethodsInsteadOfGenerators = (1901 to 2000)
     .flatMap(y => (1 to 12)
-      .flatMap(m => (1 to daysInMonth(m,y))
-        .filter(d => {
-          d == 1 && LocalDate.parse(makeIsoString(y,m,d)).getDayOfWeek.getValue == 7
-        })
+      .flatMap(m => (1 to getDaysInMonth(m,y))
+        .filter(d => d == 1 && isSunday(y,m,d))
       )
     )
 
-
   def imperativeStyle:Int = {
-    var today = "Tue"
+    var today = 2
     var firstSundays = 0
     for (y <- 1901 to 2000) {
       for (m <- 1 to 12) {
-        for (d <- 1 to daysInMonth(m,y)) {
-          if (d == 1 && today == "Sun") {
+        for (d <- 1 to getDaysInMonth(m,y)) {
+          if (d == 1 && today == 7) {
             firstSundays = firstSundays + 1
           }
-          today = tomorrow(today)
+          today = tomorrowAsValue(today)
         }
       }
     }
