@@ -58,6 +58,12 @@ class Euler19 {
     if ( d == 1 && LocalDate.parse(makeIsoString(y,m,d)).getDayOfWeek.getValue == 7)
   } yield d
 
+  // LocalDate.parse
+  // A date without a time-zone in the ISO-8601 calendar system, such as 2007-12-03
+
+  // SOURCES
+  // #getDayOfWeek.getValue: https://docs.oracle.com/javase/8/docs/api/java/time/DayOfWeek.html#SUNDAY
+
   // this is the same as the For Comprehension above:
   def useMethodsInsteadOfGenerators = (1901 to 2000)
     .flatMap(y => (1 to 12)
