@@ -58,7 +58,15 @@ class Euler19 {
     if ( d == 1 && LocalDate.parse(makeIsoString(y,m,d)).getDayOfWeek.getValue == 7)
   } yield d
 
-  val solution = solveJavaLocalDate.size
+  // this is the same as the For Comprehension above:
+  def useMethodsInsteadOfGenerators = (1901 to 2000)
+    .flatMap(y => (1 to 12)
+      .flatMap(m => (1 to daysInMonth(m,y))
+        .filter(d => {
+          d == 1 && LocalDate.parse(makeIsoString(y,m,d)).getDayOfWeek.getValue == 7
+        })
+      )
+    )
 
 
   def imperativeStyle:Int = {

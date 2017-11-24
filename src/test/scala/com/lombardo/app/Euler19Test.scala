@@ -22,5 +22,8 @@ class Euler19Test extends FlatSpec with Matchers {
     time(s"e19.useJavaLocalDate") {
       e.solveJavaLocalDate.size should be(171)
     }
+    time(s"e19.tryItFun") {
+      e.useMethodsInsteadOfGenerators.size should be(171)
+    }
   }
 }
