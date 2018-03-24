@@ -25,4 +25,4 @@ jobs:
           paths:
             - ~/.m2
           key: v1-dependencies-{{ checksum "build.gradle" }}
-      - run: ./gradlew test --stacktrace 
+      - run: printenv && ./gradlew test --stacktrace
