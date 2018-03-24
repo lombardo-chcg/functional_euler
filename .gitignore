@@ -8,6 +8,10 @@
 # java specific
 *.class
 
+# gradle specific
+build/
+.gradle/
+
 # sbt specific
 target/
 project/boot
