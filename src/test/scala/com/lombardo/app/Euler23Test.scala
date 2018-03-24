@@ -16,7 +16,7 @@ class Euler23Test extends FlatSpec with Matchers {
 
       it should "solve" in {
         time(s"${getClass.getSimpleName.replace("Test", "")}") {
-            println(e.solve)
+//            println(e.solve)
           }
       }
   }
