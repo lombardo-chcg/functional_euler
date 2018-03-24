@@ -16,7 +16,7 @@ class Euler23Test extends EulerTestBase {
 
       it should "solve" in {
         time(s"${getClass.getSimpleName.replace("Test", "")}") {
-            println(e.solve)
+            e.solve should be(4179871)
           }
       }
   }
