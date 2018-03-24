@@ -9,4 +9,4 @@ jobs:
       - image: circleci/openjdk:8-jdk
     steps:
       - checkout
-      - run: ./gradlew test
+      - run: ./gradlew test --stacktrace 
