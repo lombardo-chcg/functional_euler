@@ -4,7 +4,7 @@ import com.lombardo.app.helpers.Utils.time
 import com.lombardo.app.problems._
 import org.scalatest.{FlatSpec, Matchers}
 
-class Euler45Test extends FlatSpec with Matchers {
+class Euler45Test extends EulerTestBase {
   val e = new Euler45
 
   it should "have good helpers" in {

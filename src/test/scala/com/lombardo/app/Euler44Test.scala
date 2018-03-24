@@ -4,7 +4,7 @@ import com.lombardo.app.helpers.Utils.time
 import com.lombardo.app.problems._
 import org.scalatest.{FlatSpec, Matchers}
 
-class Euler44Test extends FlatSpec with Matchers {
+class Euler44Test extends EulerTestBase {
   val e = new Euler44
 
   it should "solve" in {

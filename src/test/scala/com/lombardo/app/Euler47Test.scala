@@ -5,7 +5,7 @@ import com.lombardo.app.helpers.Utils.time
 import com.lombardo.app.problems.Euler47
 import org.scalatest.{FlatSpec, Matchers}
 
-class Euler47Test extends FlatSpec with Matchers {
+class Euler47Test extends EulerTestBase {
   implicit val pc = new PrimeCalculator
   val e = new Euler47
 
