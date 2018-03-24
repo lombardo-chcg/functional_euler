@@ -16,6 +16,10 @@ shadowJar {
     baseName = "scala-gradle-starter"
 }
 
+test {
+    maxParallelForks = 1
+}
+
 repositories {
     mavenCentral()
 }
