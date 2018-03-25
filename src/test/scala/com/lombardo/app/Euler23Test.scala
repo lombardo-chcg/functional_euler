@@ -1,9 +1,7 @@
 package com.lombardo.app
 
-import com.lombardo.app.helpers.PrimeCalculator
 import com.lombardo.app.helpers.Utils.time
 import com.lombardo.app.problems._
-import org.scalatest.{FlatSpec, Matchers}
 
 class Euler23Test extends EulerTestBase {
     val e = new Euler23

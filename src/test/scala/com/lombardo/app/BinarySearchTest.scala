@@ -2,7 +2,6 @@ package com.lombardo.app
 
 import com.lombardo.app.helpers.Utils.time
 import com.lombardo.app.problems._
-import org.scalatest.{FlatSpec, Matchers}
 
 class BinarySearchTest extends EulerTestBase {
   val e = new BinarySearch

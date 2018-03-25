@@ -1,6 +1,5 @@
 package com.lombardo.app
 import com.lombardo.app.helpers.Helpers._
-import org.scalatest.{FlatSpec, Matchers}
 
 class HelpersTest extends EulerTestBase {
   "helpers" should "know about palindromes" in {

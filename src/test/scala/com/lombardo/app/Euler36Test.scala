@@ -1,6 +1,5 @@
 package com.lombardo.app
 import com.lombardo.app.problems.Euler36
-import org.scalatest.{FlatSpec, Matchers}
 
 class Euler36Test extends EulerTestBase {
   it should "solve" in {

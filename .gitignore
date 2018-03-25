@@ -31,3 +31,4 @@ project/plugins/project
 *.iws
 .*.sw?
 .idea
+out/

@@ -3,7 +3,6 @@ package com.lombardo.app
 import com.lombardo.app.helpers.PrimeCalculator
 import com.lombardo.app.helpers.Utils.time
 import com.lombardo.app.problems.Euler48
-import org.scalatest.{FlatSpec, Matchers}
 
 class Euler48Test extends EulerTestBase {
   implicit val pc = new PrimeCalculator

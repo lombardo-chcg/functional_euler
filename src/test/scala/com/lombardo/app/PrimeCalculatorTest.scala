@@ -1,7 +1,6 @@
 package com.lombardo.app
 import com.lombardo.app.helpers.PrimeCalculator
 import com.lombardo.app.helpers.Utils._
-import org.scalatest.{FlatSpec, Matchers}
 
 class PrimeCalculatorTest extends EulerTestBase {
   val pc = new PrimeCalculator
