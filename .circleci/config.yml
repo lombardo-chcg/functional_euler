@@ -26,3 +26,4 @@ jobs:
             - ~/.m2
           key: v1-dependencies-{{ checksum "build.gradle" }}
       - run: printenv && ./gradlew test --stacktrace
+      - run: cat /home/circleci/project/build/reports/tests/test/index.html
