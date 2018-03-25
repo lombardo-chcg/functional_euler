@@ -4,7 +4,7 @@ import com.lombardo.app.helpers.Utils.time
 import com.lombardo.app.problems._
 import org.scalatest.{FlatSpec, Matchers}
 
-class Euler18Test extends FlatSpec with Matchers {
+class Euler18Test extends EulerTestBase {
   val e = new Euler18
   val sampleInput = Map(
     1 -> List(3),

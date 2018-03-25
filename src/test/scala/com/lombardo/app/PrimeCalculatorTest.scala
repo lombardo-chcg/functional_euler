@@ -3,7 +3,7 @@ import com.lombardo.app.helpers.PrimeCalculator
 import com.lombardo.app.helpers.Utils._
 import org.scalatest.{FlatSpec, Matchers}
 
-class PrimeCalculatorTest extends FlatSpec with Matchers {
+class PrimeCalculatorTest extends EulerTestBase {
   val pc = new PrimeCalculator
 
   it should "return a list of all primes under a given number" in {

@@ -5,7 +5,7 @@ import com.lombardo.app.helpers.Utils.time
 import com.lombardo.app.problems.Euler49
 import org.scalatest.{FlatSpec, Matchers}
 
-class Euler49Test extends FlatSpec with Matchers {
+class Euler49Test extends EulerTestBase {
   implicit val pc = new PrimeCalculator
   val e = new Euler49
   it should "have good helpers" in {

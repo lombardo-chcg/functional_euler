@@ -5,7 +5,7 @@ import com.lombardo.app.helpers.Utils.time
 import com.lombardo.app.problems._
 import org.scalatest.{FlatSpec, Matchers}
 
-class Euler28Test extends FlatSpec with Matchers {
+class Euler28Test extends EulerTestBase {
   implicit val pc = new PrimeCalculator
   val e = new Euler28
 
@@ -26,7 +26,7 @@ class Euler28Test extends FlatSpec with Matchers {
 
   it should "solve" in {
     time(s"${getClass.getSimpleName.replace("Test", "")}") {
-      println(e.solve)
+      e.solve should be(669171001)
     }
   }
 }

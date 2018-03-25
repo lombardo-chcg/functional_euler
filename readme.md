@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/lombardo-chcg/functional_euler.svg?style=svg)](https://circleci.com/gh/lombardo-chcg/functional_euler)
+[![Build Status](https://travis-ci.org/lombardo-chcg/functional_euler.svg?branch=master)](https://travis-ci.org/lombardo-chcg/functional_euler)
 
 # Functional Euler
 Learning functional programming by solving [Project Euler](https://projecteuler.net) problems
