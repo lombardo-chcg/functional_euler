@@ -1,4 +1,4 @@
-package com.lombardo.app.problems
+package com.lombardo.app.helpers
 
 class BinarySearch {
   def getIndexOf(list: Array[Int], targetItem: Int): Int = {

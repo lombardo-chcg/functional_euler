@@ -1,5 +1,6 @@
 package com.lombardo.app
 
+import com.lombardo.app.helpers.BinarySearch
 import com.lombardo.app.helpers.Utils.time
 import com.lombardo.app.problems._
 
