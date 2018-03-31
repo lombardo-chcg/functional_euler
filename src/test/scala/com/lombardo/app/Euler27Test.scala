@@ -12,8 +12,11 @@ class Euler27Test extends EulerTestBase {
   }
 
   it should "solve" in {
-    time(s"${getClass.getSimpleName.replace("Test", "")}") {
+    time(s"${getClass.getSimpleName.replace("Test", " imperative")}") {
       e.imperativeSolve should be(-59231)
+    }
+
+    time(s"${getClass.getSimpleName.replace("Test", " functional")}") {
       e.functionalSolve should be(-59231)
     }
   }
