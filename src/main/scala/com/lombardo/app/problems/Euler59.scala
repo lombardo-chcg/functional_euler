@@ -37,6 +37,7 @@ class Euler59 {
         (score, decryptedMessageCandidate)
       } else acc
     })
+    println(result._2.map(_.toChar).mkString)
     result._2.map(_.toInt).sum
   }
 }
