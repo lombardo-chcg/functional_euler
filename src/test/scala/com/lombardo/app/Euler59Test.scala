@@ -7,13 +7,13 @@ class Euler59Test extends EulerTestBase {
   val e = new Euler59
 
   it should "have good helpers" in {
-    e.encrypt(65, 42) should be(107)
-    e.encrypt(107, 42) should be(65)
+    e.encrypt(List(65), List(42)) should be(List(107))
+    e.encrypt(List(107), List(42)) should be(List(65))
   }
 
   it should "solve" in {
     time(s"${getClass.getSimpleName.replace("Test", "")}") {
-//      println(e.solve)
+      e.solve should be(107359)
     }
   }
 }

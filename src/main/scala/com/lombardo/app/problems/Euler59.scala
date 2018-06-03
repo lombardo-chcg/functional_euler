@@ -3,27 +3,40 @@ package com.lombardo.app.problems
 import com.lombardo.app.helpers.Helpers
 
 class Euler59 {
-
-  def encrypt(n: Int, key: Int): Int = n ^ key
-
-  def loop = {
-    for {
-     a <-  (97 to 122)
-    } yield 
+  def encrypt(msg: Seq[Byte], key: Seq[Byte]): Seq[Byte] = {
+    msg.zipWithIndex.map { case (b, idx) => (b ^ key(idx % key.size)).toByte }
   }
-  
-  def solve:Int = {
-    val encryptedAsciiCodes = Helpers.readFile("/p059_cipher.txt").mkString.split(",").map(_.toInt.toChar)
-    val msgLen = encryptedAsciiCodes.size
-    val encryptionKeyCandidates = (97 to 122).map(_.toChar).combinations(3).toList
-    val x = encryptionKeyCandidates.flatMap(key => {
-      val cyclicKey = (1 to 866).map(_ => key) :+ key.dropRight(1)
-      val res = encryptedAsciiCodes.map(x => (x.toInt ^ cyclicKey.map(keyset => keyset.map(_.toInt).sum).sum)).filter(p => p >= 32 && p <= 126).map(_.toChar).mkString
-      if (res.size == msgLen) Some(res) else None
+
+  // alternative to RegEx.. i.e. [[space]] \w \d
+  private val allowedCharCodes = List(
+    List(32),
+    (48 to 57).toList,
+    (65 to 90).toList,
+    (97 to 122).toList
+  ).flatten.map(_.toByte).zipWithIndex.toMap
+
+  def isEnglishWordChar(p: Byte) = allowedCharCodes.contains(p)
+
+  def solve: Int = {
+    val encryptedMessage = Helpers.readFile("/p059_cipher.txt").mkString.split(",").map(_.toByte)
+    val encryptionKeyCandidates: Seq[Seq[Byte]] = for {
+      a <- (97 to 122)
+      b <- (97 to 122)
+      c <- (97 to 122)
+    } yield Seq(a,b,c).map(_.toByte)
+
+    val maxScore = 0
+    val decryptedMessage = Seq.empty[Byte]
+
+    val result = encryptionKeyCandidates.foldLeft((maxScore, decryptedMessage))((acc, key) => {
+      val decryptedMessageCandidate = encrypt(encryptedMessage, key)
+      val score = decryptedMessageCandidate.map(b => {
+        if (isEnglishWordChar(b)) 1 else 0
+      }).sum
+      if (score > acc._1) {
+        (score, decryptedMessageCandidate)
+      } else acc
     })
-    x.foreach(println)
-    println(x.size)
-    println(encryptionKeyCandidates.size)
-    15
+    result._2.map(_.toInt).sum
   }
 }
