@@ -9,8 +9,6 @@ class Euler92Test extends EulerTestBase {
   it should "have good helpers" in {
     e.squareDigitsAndAdd(44) should be(32)
     e.squareDigitsAndAdd(85) should be(89)
-    e.findChainTerminatorImperative(44) should be(1)
-    e.findChainTerminatorImperative(85) should be(89)
   }
 
   it should "solve" in {
