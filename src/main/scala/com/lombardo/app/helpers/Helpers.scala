@@ -32,4 +32,12 @@ object Helpers {
   def readFile(file: String): Iterator[String] = {
     Source.fromInputStream(getClass.getResourceAsStream(file)).getLines
   }
+
+
+  private val panDigitalMatcher = for (i <- 1 to 9) yield i.toString
+  def isPandigital(n: Int): Boolean = {
+    val str = n.toString
+    if (str.size > 9) false
+    else panDigitalMatcher == str.split("").sorted.toSeq
+  }
 }

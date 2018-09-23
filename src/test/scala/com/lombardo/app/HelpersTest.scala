@@ -45,4 +45,11 @@ class HelpersTest extends EulerTestBase {
     isHexagonal(947) should be(false)
     isHexagonal(40755) should be(true)
   }
+
+  it should "identify Pandigital numbers" in {
+    isPandigital(192384576) should be(true)
+    isPandigital(918273645) should be(true)
+    isPandigital(40755) should be(false)
+    isPandigital(192384575) should be(false)
+  }
 }
